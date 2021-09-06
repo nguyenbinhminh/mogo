@@ -1,0 +1,118 @@
+.quote {
+	padding: 6.5rem 0;
+	@include bg($gray-color);
+	// &-container {
+	// 	@include flexbox(center, space-between);
+	// }
+	&-arrow-img {
+		cursor: pointer;
+		padding: 1rem 2rem;
+	}
+	&-item {
+		// padding-left: 5.5rem;
+		// padding-right: 5.5rem;
+		@include flexbox(center);
+		outline: none;
+		&-icon {
+			@include size(15rem);
+			@include flexbox(center, center);
+			border: 3px solid $third-color;
+			flex-shrink: 0;
+			margin-right: 6rem;
+			margin-left: 9rem;
+		}
+		&-img {
+			flex-shrink: 0;
+			margin-right: 3rem;
+			margin-left: 6rem;
+			img {
+				@include size(15rem);
+				object-fit: cover;
+				border-radius: 50%;
+			}
+		}
+		// &-info {
+		// 	padding-left: 4rem;
+		// }
+		&-desc {
+			font-family: $secondary-font;
+			font-size: 2.4rem;
+			font-style: italic;
+			font-weight: 300;
+			line-height: 3.6rem;
+			color: $text-color;
+			@include textClamp(3);
+			margin-bottom: 2.5rem;
+			padding-right: 8rem;
+		}
+		&-author {
+			font-family: $third-font;
+			font-size: 2.4rem;
+			position: relative;
+			padding-left: 7rem;
+			&::before {
+				content: "";
+				@include absoluteCenter("top");
+				left: 0;
+				@include size(6rem, 0.4rem);
+				@include bg($primary-color);
+			}
+		}
+	}
+	// Slick Slider
+	.slick-initialized .slick-slide {
+		display: flex;
+	}
+	.quote-arrow-img {
+		@include absoluteCenter("top");
+		z-index: 10;
+	}
+	.quote-arrow-left {
+		left: 0;
+	}
+	.quote-arrow-right {
+		right: 0;
+	}
+	@include maxWidth(767px) {
+		&-arrow-img {
+			display: none;
+		}
+		&-item {
+			padding: 0;
+			flex-direction: column;
+			&-icon {
+				margin-left: 0;
+				margin-right: 0;
+				@include size(10rem);
+				img {
+					width: 50%;
+				}
+			}
+			&-img {
+				margin-left: 0;
+				margin-right: 0;
+				img {
+					@include size(10rem);
+				}
+			}
+			&-info {
+				padding-left: 0;
+				padding-right: 0;
+				margin-top: 3rem;
+			}
+			&-desc {
+				display: block;
+				font-size: 1.6rem;
+				line-height: 1.6;
+				padding-right: 0;
+			}
+			&-author {
+				font-size: 2rem;
+				padding-left: 5rem;
+				&::before {
+					@include size(4rem, 0.2rem);
+				}
+			}
+		}
+	}
+}

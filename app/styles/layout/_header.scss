@@ -1,0 +1,215 @@
+.header {
+	min-height: 100rem;
+	background: linear-gradient(to bottom, rgba($primary-color, 0.8), rgba($secondary-color, 0.8)),
+		url("../images/img-header-bg.jpg") no-repeat center center / cover;
+	color: #fff;
+	&-logo {
+		font-size: 3rem;
+		font-weight: bold;
+		color: #fff;
+	}
+	&-top {
+		padding-top: 3rem;
+		@include flexbox(baseline, space-between);
+	}
+	&-menu {
+		display: flex;
+		&-item {
+			&:not(:first-child) {
+				margin-left: 5rem;
+			}
+		}
+		&-link {
+			color: #fff;
+			text-transform: uppercase;
+			display: inline-block;
+			padding-bottom: 1rem;
+			border-bottom: 0.4rem solid transparent;
+			transition: all 0.25s linear;
+			&:hover {
+				color: $secondary-color;
+				border-bottom-color: $secondary-color;
+			}
+		}
+		&-icon {
+			color: #fff;
+		}
+	}
+	&-content {
+		padding-top: 17rem;
+		text-align: center;
+		max-width: 83rem;
+		margin: 0 auto;
+		&-caption {
+			font-size: 7.2rem;
+			font-family: $third-font;
+			margin-bottom: 4rem;
+		}
+		&-main {
+			font-family: $primary-font;
+			font-size: 15rem;
+			font-weight: bold;
+			text-transform: uppercase;
+			padding-bottom: 6rem;
+			margin-bottom: 5rem;
+			position: relative;
+			&::after {
+				content: "";
+				@include absoluteCenter("left");
+				bottom: 0;
+				@include size(6rem, 0.5rem);
+				background-color: #fff;
+			}
+		}
+		&-more {
+			padding: 1rem 3rem;
+			font-size: 1.4rem;
+			font-weight: bold;
+			text-transform: uppercase;
+			color: #fff;
+			border: 0.3rem solid #fff;
+			display: inline-block;
+		}
+	}
+	&-bottom {
+		margin-top: 15.5rem;
+		padding-bottom: 2.5rem;
+		display: flex;
+
+		&-item {
+			padding-top: 2.5rem;
+			border-top: 0.4rem solid #fff;
+			width: calc(25% - 3rem);
+			margin-left: 3rem;
+			opacity: 0.7;
+			position: relative;
+			cursor: pointer;
+			transition: all 0.25s linear;
+			&::before {
+				content: "";
+				@include size(7rem, 0.4rem);
+				background-color: $primary-color;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transform: translateY(-100%);
+				opacity: 0;
+				transition: all 0.25s linear;
+			}
+			&:hover,
+			&.is-active {
+				opacity: 1;
+				&::before {
+					opacity: 1;
+				}
+			}
+		}
+		&-number {
+			font-weight: bold;
+			font-size: 2.4rem;
+		}
+		&-text {
+			margin-left: 1rem;
+			text-transform: uppercase;
+			font-size: 1.8rem;
+		}
+	}
+	&-toggle {
+		display: none;
+		font-size: 2rem;
+		cursor: pointer;
+	}
+	@include maxWidth(1023px) {
+		min-height: unset;
+		.header {
+			&-content {
+				padding-top: 10rem;
+				&-main {
+					font-size: 10rem;
+				}
+				&-caption {
+					font-size: 6.2rem;
+				}
+			}
+			&-bottom {
+				margin-top: 10.5rem;
+			}
+		}
+	}
+	@include maxWidth(767px) {
+		.header {
+			&-toggle {
+				display: block;
+				align-self: center;
+			}
+			&-menu {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				background-color: #fff;
+				width: 30rem;
+				display: block;
+				padding: 2rem 2.5rem;
+				z-index: 10;
+				transform: translateX(100%);
+				transition: transform 0.25s ease-in;
+				&.is-expand {
+					transform: translateX(0);
+				}
+				&-item {
+					margin-bottom: 1rem;
+					&:not(:first-child) {
+						margin-left: unset;
+					}
+				}
+				&-icon {
+					display: block;
+					color: $title-color;
+					padding: 1.5rem;
+					border-bottom: none;
+					border-radius: 0.4rem;
+					&:hover {
+						color: $primary-color;
+					}
+				}
+				&-link {
+					color: $title-color;
+					width: 100%;
+					border-bottom: none;
+					padding: 1.5rem;
+					border-radius: 0.4rem;
+					&:hover {
+						color: #fff;
+						background-color: $secondary-color;
+					}
+				}
+			}
+			&-content {
+				padding-top: 5rem;
+				&-caption {
+					font-size: 3rem;
+					margin-bottom: 1rem;
+				}
+				&-main {
+					font-size: 5rem;
+					margin-bottom: 3rem;
+					padding-bottom: 3rem;
+				}
+			}
+			&-bottom {
+				margin-top: 5rem;
+				&-text {
+					display: none;
+				}
+				&-item {
+					text-align: center;
+					padding-top: 1.5rem;
+					&::before {
+						width: 35%;
+					}
+				}
+			}
+		}
+	}
+}

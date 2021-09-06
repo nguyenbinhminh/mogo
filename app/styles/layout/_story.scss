@@ -1,0 +1,118 @@
+.story {
+	padding: 10rem 0;
+	&-list {
+		@include flexbox(stretch, space-between);
+	}
+	&-item {
+		width: calc((100% / 3) - 2rem);
+	}
+	&-media {
+		position: relative;
+		margin-bottom: 2rem;
+	}
+	&-image {
+		@include size(100%, 24rem);
+		object-fit: cover;
+	}
+	&-date {
+		@include bg($third-color);
+		padding: 1.5rem 2rem;
+		@include flexbox(center, center, column);
+		position: absolute;
+		left: -1rem;
+		bottom: 1rem;
+		z-index: 2;
+		color: #fff;
+		&-number {
+			font-weight: bold;
+			font-size: 3rem;
+		}
+		&-text {
+			color: #fff;
+		}
+	}
+	&-title {
+		text-transform: uppercase;
+		font-weight: 500;
+		margin-bottom: 2rem;
+		line-height: 1.4;
+	}
+	&-desc {
+		padding-bottom: 2rem;
+		margin-bottom: 2rem;
+		border-bottom: 1px solid $border-color;
+		&-text {
+			@include textClamp(4);
+		}
+	}
+	&-meta {
+		@include flexbox(center);
+		&-item {
+			margin-right: 2rem;
+		}
+		&-icon {
+			color: $third-color;
+			margin-right: 0.5rem;
+		}
+	}
+	@include maxWidth(1023px) {
+		padding: 5rem 0;
+		&-image {
+			height: 14rem;
+		}
+		&-date {
+			padding: 1rem 1.5rem;
+		}
+		&-title {
+			font-size: 1.2rem;
+			@include textClamp(2);
+		}
+		&-desc {
+			font-size: 1.3rem;
+			&-text {
+				@include textClamp(3);
+			}
+		}
+	}
+	@include maxWidth(767px) {
+		padding-bottom: 0;
+		&-image {
+			height: auto;
+		}
+		&-list {
+			display: block;
+		}
+		&-item {
+			width: 100%;
+			margin-bottom: 2rem;
+		}
+		&-date {
+			left: -0.5rem;
+			bottom: 0.5rem;
+		}
+	}
+}
+.map {
+	padding: 6rem 0;
+	background: linear-gradient(rgba(#fff, 0.85)), url("../images/img-map.png") center center / cover no-repeat;
+	&-content {
+		@include flexbox(center, center, column);
+	}
+	&-heading {
+		position: relative;
+		font-size: 2.4rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		color: $primary-color;
+		padding-bottom: 2rem;
+		margin-bottom: 2rem;
+		margin-top: 1.5rem;
+		&::after {
+			content: "";
+			@include size(6rem, 0.4rem);
+			@include bg($primary-color);
+			@include absoluteCenter();
+			bottom: 0;
+		}
+	}
+}

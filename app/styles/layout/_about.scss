@@ -1,0 +1,51 @@
+.about {
+	padding-top: 9.3rem;
+	padding-bottom: 11rem;
+	background-color: #fff;
+	&-list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 3rem;
+		// Khi ở trên màn hình di động sẽ để scroll ngang
+		@include maxWidth(767px) {
+			grid-auto-columns: 80%;
+			grid-auto-flow: column;
+			grid-template-columns: unset;
+			gap: 2rem;
+			overflow-x: auto;
+			padding: 1rem;
+			// Scroll snap cho phần tử cha
+			scroll-snap-type: x mandatory;
+			scroll-snap-stop: always;
+			// Ẩn thanh scroll
+			@include hideScroll();
+		}
+	}
+	&-item {
+		@include maxWidth(767px) {
+			// Scroll snap cho phần tử con
+			scroll-snap-align: center;
+		}
+	}
+	&-overlay {
+		color: #fff;
+		text-align: center;
+		text-transform: uppercase;
+		padding: 2rem;
+	}
+	&-icon {
+		font-size: 2rem;
+		margin-bottom: 1rem;
+	}
+	&-title {
+		font-size: 1.8rem;
+		line-height: 1.4;
+		font-weight: bold;
+		@include textClamp(1);
+	}
+	@include maxWidth(767px) {
+		padding-top: 5rem;
+		padding-bottom: 5rem;
+	}
+}
+@include hoverEffect(".about-item", ".about-overlay");

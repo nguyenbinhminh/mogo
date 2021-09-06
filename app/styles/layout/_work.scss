@@ -1,0 +1,54 @@
+.work {
+	padding-top: 10rem;
+	&-list {
+		@include flexbox;
+		height: 78rem;
+	}
+	&-column {
+		width: 25%;
+	}
+	&-item {
+		height: 50%;
+		&--full {
+			height: 100%;
+		}
+		&-image {
+			@include size(100%);
+			object-fit: cover;
+		}
+	}
+	&-content {
+		color: #fff;
+		text-align: center;
+		padding: 1rem;
+		&-image {
+			margin-bottom: 1.5rem;
+		}
+		&-title {
+			text-transform: uppercase;
+			margin-bottom: 1rem;
+			line-height: 1.6;
+			@include textClamp(1);
+		}
+		&-desc {
+			color: #fff;
+		}
+	}
+	@include maxWidth(1600px) {
+		&-list {
+			height: 60rem;
+		}
+	}
+	@include maxWidth(1279px) {
+		padding-top: 5rem;
+		&-list {
+			flex-wrap: wrap;
+			overflow: hidden;
+			height: auto;
+		}
+		&-column {
+			width: 50%;
+		}
+	}
+}
+@include hoverEffect(".work-item", ".work-content", "false");

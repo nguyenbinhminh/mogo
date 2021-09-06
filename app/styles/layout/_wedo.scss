@@ -1,0 +1,77 @@
+.wedo {
+	padding: 11rem 0;
+	&-image {
+		object-fit: cover;
+	}
+	&-item {
+		&-header {
+			@include flexbox(center);
+			padding: 1.5rem;
+			border: 1px solid $border-color;
+			cursor: pointer;
+		}
+		&-icon {
+			margin-right: 1.5rem;
+		}
+		&-title {
+			text-transform: uppercase;
+			font-weight: 500;
+			margin-right: 1.5rem;
+			@include textClamp;
+		}
+		&-arrow-down,
+		&-arrow-up {
+			margin-left: auto;
+		}
+		&-arrow-up {
+			display: none;
+		}
+		&-content {
+			padding: 2rem 1.5rem;
+			border: 1px solid $border-color;
+			border-top: none;
+			font-size: 1.5rem;
+			font-family: $secondary-font;
+			font-style: italic;
+			line-height: 1.6;
+			font-weight: 300;
+			color: $text-color;
+			display: none;
+		}
+		&-text {
+			height: 14rem;
+			overflow-y: auto;
+			padding-right: 2rem;
+			@include styleScrollbar();
+		}
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+		&.is-active {
+			& > .wedo-item-content {
+				display: block;
+			}
+			& .wedo-item-arrow-up {
+				display: block;
+			}
+			& .wedo-item-arrow-down {
+				display: none;
+			}
+		}
+	}
+	@include minWidth(768px) {
+		&-container {
+			@include flexbox(stretch, space-between, row, nowrap);
+		}
+		&-image,
+		&-content {
+			width: calc(50% - 1.5rem);
+		}
+	}
+	@include maxWidth(767px) {
+		padding: 5rem 0;
+		&-image {
+			margin-bottom: 2rem;
+		}
+	}
+}
