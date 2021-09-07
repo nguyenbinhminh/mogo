@@ -247,25 +247,6 @@ button {
     -ms-grid-columns: (1fr)[3];
     grid-template-columns: repeat(3, 1fr);
     gap: 3rem; }
-    @media screen and (max-width: 767px) {
-      .about-list {
-        grid-auto-columns: 80%;
-        grid-auto-flow: column;
-        -ms-grid-columns: unset;
-        grid-template-columns: unset;
-        gap: 2rem;
-        overflow-x: auto;
-        padding: 1rem;
-        -ms-scroll-snap-type: x mandatory;
-        scroll-snap-type: x mandatory;
-        scroll-snap-stop: always;
-        -ms-overflow-style: none;
-        scrollbar-width: none; }
-        .about-list::-webkit-scrollbar {
-          display: none; } }
-  @media screen and (max-width: 767px) {
-    .about-item {
-      scroll-snap-align: center; } }
   .about-overlay {
     color: #fff;
     text-align: center;
@@ -290,7 +271,29 @@ button {
   @media screen and (max-width: 767px) {
     .about {
       padding-top: 5rem;
-      padding-bottom: 5rem; } }
+      padding-bottom: 5rem; }
+      .about-list {
+        grid-auto-columns: 80%;
+        grid-auto-flow: column;
+        -ms-grid-columns: unset;
+        grid-template-columns: unset;
+        gap: 4rem;
+        overflow-x: auto;
+        padding: 1rem;
+        -ms-scroll-snap-type: x mandatory;
+        scroll-snap-type: x mandatory;
+        scroll-snap-stop: always;
+        -ms-overflow-style: none;
+        scrollbar-width: none; }
+        .about-list::-webkit-scrollbar {
+          display: none; }
+      .about-item {
+        scroll-snap-align: center;
+        width: 100%; }
+      .about-image {
+        width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover; } }
 
 .about-item {
   position: relative;
@@ -626,7 +629,8 @@ button {
     .wedo {
       padding: 5rem 0; }
       .wedo-image {
-        margin-bottom: 2rem; } }
+        margin-bottom: 2rem;
+        width: 100%; } }
 
 .quote {
   padding: 6.5rem 0;
